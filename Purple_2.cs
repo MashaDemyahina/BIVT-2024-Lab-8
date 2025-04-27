@@ -32,8 +32,9 @@ namespace Lab_8
             {
                 int k = 0;
                 int z = 0;
-                foreach( var c in b)
+                for (int i = 0; i < b.Length; i++) 
                 {
+                    var c = b[i];
                     if (z + c.Length + 1 <= 50)
                     {
                         if (z != 0)
@@ -83,6 +84,7 @@ namespace Lab_8
                        // str.Append(b);
                         z = 0; 
                         k = 0;
+                        i--;
                     }
 
                 }
