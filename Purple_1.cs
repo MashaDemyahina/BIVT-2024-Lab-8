@@ -35,14 +35,19 @@ namespace Lab_8
                 {
                     if (Char.IsDigit(ar[i]))
                     {
-                        answer.Append(ar);
+                        //answer.Append(ar);
+                        Array.Resize(ref answer, answer.Length + 1);
+                        answer[answer.Length - 1] = ar;
                         break;
                     }
                     if (separators.Contains(ar[i]))
                     {
-                        for (int j = copy.Length -1; j >= 0; j--)
+                        for (int j = copy.Length - 1; j >= 0; j--)
                         {
+                            if (copy != "")
+                            { 
                             nado += copy[j];
+                             }
                         }
                         nado += ar[i];
                         copy = "";
@@ -56,10 +61,18 @@ namespace Lab_8
                 {
                     for (int j= copy.Length-1; j>=0; j--)
                     {
-                        nado += copy[j];
+                        if (copy != "")
+                        {
+                            nado += copy[j];
+                        }
                     }
                 }
-                answer.Append(nado);
+                //answer.Append(nado);
+                if (nado!="")
+                { 
+                    Array.Resize(ref answer, answer.Length + 1);
+                answer[answer.Length - 1] = nado;
+                }
                 
             }
             _output = String.Join(" ", answer);

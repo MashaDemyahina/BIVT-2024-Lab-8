@@ -36,7 +36,7 @@ namespace Lab_8
         
         public override void Review()
         {
-            if (_output == null) return;
+            if (_input == null) return;
             var answer = new StringBuilder();
             string[] pair = new string[0];
             for (int i = 0; i < _input.Length - 1; i++)
@@ -52,42 +52,47 @@ namespace Lab_8
                 .Take(5).ToArray();
             for (int i = 0; i < Math.Min(5, A.Length); i++)
             {
-                Codes = Codes.Append((A[i], Code[i])).ToArray();
+                //Codes = Codes.Append((A[i], Code[i])).ToArray();
+                Codes[i] = (A[i], Code[i]);
             }
+            var tmp = _input;
             for (int i = 0; i <A.Length; i++)
             {
                 int z=0;
-                for (int j = 0; j < _input.Length - 1; j++)
+                for (int j = 0; j < tmp.Length - 1; j++)
                 {
 
-                    if ($"{_input[j]}{_input[j + 1]}" == A[i])
+                    if ($"{tmp[j]}{tmp[j + 1]}" == A[i])
                     {
                         answer.Append(Code[i]);
                         j++;
                         z++;
                     }
-                    else { answer.Append(_input[j]); }
+                    else { answer.Append(tmp[j]); }
                     z++;
                 }
-                if (z == _input.Length - 1)
+                if (z == tmp.Length - 1)
                 { 
-                    answer.Append(_input[z]);
+                    answer.Append(tmp[z]);
                 }
-                _input = answer.ToString();
+                tmp = answer.ToString();
                 answer = new StringBuilder();
             }
+            _output = tmp.ToString();
+           // answer = new StringBuilder();
 
 
 
 
-           // for (int i=0; i<5; i++) { }
+
+            // for (int i=0; i<5; i++) { }
             //int[,] pairCounts = new int[95, 95];
-           // for (int i = 0; i < _input.Length - 1; i++)
-           // {
+            // for (int i = 0; i < _input.Length - 1; i++)
+            // {
             //    char firstChar = _input[i];
-           //     char secondChar = _input[i + 1];
-           //     pairCounts[firstChar - 32, secondChar - 32]++;
-          //  }
+            //     char secondChar = _input[i + 1];
+            //     pairCounts[firstChar - 32, secondChar - 32]++;
+            //  }
 
         }
         public override string ToString()

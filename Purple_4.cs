@@ -29,22 +29,23 @@ namespace Lab_8
             var answer = new StringBuilder();
             for (int i=0; i<_input.Length; i++)
             {
-                int k = 0;
-                for (int j =0; j<_code.Length; j++)
+                int j = 0;
+                bool isCode = false;
+                for (; j<_code.Length; j++)
                 {
-                    if (_input[i]== _code[j].Item2)
+                    if (_input[i] == _code[j].Item2)
                     {
-                        k++;
-                        continue;
+                        isCode = true;
+                        break;
                     }
                 }
-                if (k==0)
+                if (!isCode)
                 {
                     answer.Append(_input[i]);
                 }
                 else
                 {
-                    answer.Append(_code[k].Item1);
+                    answer.Append(_code[j].Item1);
                 }
             }
             _output = answer.ToString();

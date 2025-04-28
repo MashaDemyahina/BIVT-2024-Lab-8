@@ -53,7 +53,8 @@ namespace Lab_8
 
                         if (k == 1)
                         {
-                            answer.AppendLine(strstr);
+                            //answer.AppendLine(strstr);
+                            answer.Append($"{strstr}{Environment.NewLine}");
                         }
 
                         else
@@ -76,7 +77,7 @@ namespace Lab_8
                                     }
                                 }
                             }
-                            answer.AppendLine();
+                            answer.Append($"{Environment.NewLine}");
                         }
 
                         
@@ -94,7 +95,8 @@ namespace Lab_8
                     var words = strstr.Split(' ');
                     if (k == 1)
                     {
-                        answer.AppendLine(strstr);
+                        //answer.AppendLine(strstr);
+                        answer.Append($"{strstr}");
                     }
                     else
                     {
@@ -114,7 +116,7 @@ namespace Lab_8
                                 }
                             }
                         }
-                        answer.AppendLine();
+                        //answer.Append($"{Environment.NewLine}");
                     }
                 }
                 b = new string[0];
