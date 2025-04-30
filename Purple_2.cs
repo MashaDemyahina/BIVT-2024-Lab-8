@@ -8,30 +8,33 @@ namespace Lab_8
 {
     public class Purple_2 : Purple
     {
-        private string _output;
+        private string[] _output;
         public Purple_2(string input) : base(input)
         { }
         
 
-        public string Output
+        public string[] Output
         {
             get
             {
-                return _output;
+                if (_output == null) return null;
+                var copy = new string[_output.Length];
+                Array.Copy(_output, copy, _output.Length);
+                return copy;
             }
         }
         public override void Review()
         {
             if (_input == null) return;
-
+            _output = new string[0];
             var b = _input.Split(' ');
             var str = new StringBuilder();
             var answer = new StringBuilder();
            // var answers = new StringBuilder();
             while (b.Length > 0)
             {
-                int k = 0;
-                int z = 0;
+                int k = 0;//количество слов
+                int z = 0;//длина строки
                 for (int i = 0; i < b.Length; i++) 
                 {
                     var c = b[i];
@@ -121,12 +124,14 @@ namespace Lab_8
                 }
                 b = new string[0];
             }
-            _output = answer.ToString();
+            Array.Resize(ref _output, _output.Length + 1);
+            _output[_output.Length-1]= answer.ToString();
         }
 
         public override string ToString()
         {
-            return _output;
+            if (_output == null) return null;
+            return string.Join( Environment.NewLine, _output);
         }
     }
 }
