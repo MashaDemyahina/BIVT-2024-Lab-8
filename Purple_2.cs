@@ -38,7 +38,13 @@ namespace Lab_8
                 for (int i = 0; i < b.Length; i++) 
                 {
                     var c = b[i];
-                    if (z + c.Length + 1 <= 50)
+                    if (z==0 && c.Length==50)
+                    {
+                        z += c.Length;
+                        str.Append(c);
+                        k++;
+                    }
+                    else if (z + c.Length + 1 <= 50)
                     {
                         if (z != 0)
                         {
