@@ -63,7 +63,11 @@ namespace Lab_8
                         if (k == 1)
                         {
                             //answer.AppendLine(strstr);
-                            answer.Append($"{strstr}{Environment.NewLine}");
+                           // answer.Append($"{strstr}{Environment.NewLine}");
+                            Array.Resize(ref _output, _output.Length + 1);
+                            _output[_output.Length - 1] = strstr;
+                            answer = new StringBuilder();
+
                         }
 
                         else
@@ -86,7 +90,10 @@ namespace Lab_8
                                     }
                                 }
                             }
-                            answer.Append($"{Environment.NewLine}");
+                            // answer.Append($"{Environment.NewLine}");
+                            Array.Resize(ref _output, _output.Length + 1);
+                            _output[_output.Length - 1] = answer.ToString();
+                            answer = new StringBuilder();
                         }
 
                         
@@ -127,11 +134,13 @@ namespace Lab_8
                         }
                         //answer.Append($"{Environment.NewLine}");
                     }
+                    Array.Resize(ref _output, _output.Length + 1);
+                    _output[_output.Length-1]= answer.ToString();
                 }
                 b = new string[0];
             }
-            Array.Resize(ref _output, _output.Length + 1);
-            _output[_output.Length-1]= answer.ToString();
+          //  Array.Resize(ref _output, _output.Length + 1);
+           // _output[_output.Length-1]= answer.ToString();
         }
 
         public override string ToString()
